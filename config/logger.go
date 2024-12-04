@@ -23,6 +23,7 @@ func NewLogger(p string) *Logger {
 		info:    log.New(writer, "INFO: ", logger.Flags()),
 		warning: log.New(writer, "WARNING: ", logger.Flags()),
 		err:     log.New(writer, "ERROR: ", logger.Flags()),
+		writer:  writer,
 	}
 }
 
