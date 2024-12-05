@@ -1,0 +1,14 @@
+#Binaries 
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Test binary
+*.test
+
+# Covarege
+*.out
+
+# DB 
+db/
