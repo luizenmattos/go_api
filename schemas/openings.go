@@ -13,3 +13,16 @@ type Opening struct {
 	Link     string
 	Salary   int64
 }
+
+type OpeningResponse struct {
+	ID        uint   `json:"id"`
+	CreatedAt string `json:"createdAt"`
+	UpdatedAt string `json:"updatedAt"`
+	DeletedAt string `json:"deletedAt,omitempty"`
+	Role      string `json:"role"`
+	Company   string `json:"company"`
+	Location  string `json:"location"`
+	Remote    bool   `json:"remote"`
+	Link      string `json:"link"`
+	Salary    int64  `json:"salary"`
+}

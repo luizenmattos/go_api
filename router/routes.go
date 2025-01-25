@@ -8,6 +8,8 @@ import (
 const Version = "v1"
 
 func initializeRoutes(router *gin.Engine) {
+	handler.InitializeHandler()
+
 	routes := router.Group("/api/" + Version)
 	{
 		routes.GET("/opening", handler.GetOpeningHandler)
