@@ -9,12 +9,15 @@ import (
 var (
 	db     *gorm.DB
 	logger *Logger
+	env    string
 )
 
 func Init() error {
-	var err error
+	//setting eviorment
+	env = "dev"
 
 	//Initializar SQLite
+	var err error
 	db, err = InitializeSQLite()
 	if err != nil {
 		return fmt.Errorf("error initializing sqlite: %v", err)
@@ -31,4 +34,8 @@ func GetLogger(p string) *Logger {
 	//Initialize Logger
 	logger = NewLogger(p)
 	return logger
+}
+
+func GetEnv() string {
+	return env
 }
