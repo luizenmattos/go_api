@@ -91,7 +91,6 @@ func DeleteOpeningHandler(ctx *gin.Context) {
 	}
 
 	sendSuccess(ctx, "delete-opening", opening)
-
 }
 
 func UpdateOpeningHandler(ctx *gin.Context) {
@@ -150,7 +149,12 @@ func UpdateOpeningHandler(ctx *gin.Context) {
 }
 
 func ListOpeningsHandler(ctx *gin.Context) {
-	ctx.JSON(http.StatusOK, gin.H{
-		"msg": "GET Opening",
-	})
+	openingList := []schemas.Opening{}
+
+	if err := db.Find(&openingList).Error; err != nil {
+		sendError(ctx, http.StatusInternalServerError, "error listing openings")
+		return
+	}
+
+	sendSuccess(ctx, "list-openings", openingList)
 }
