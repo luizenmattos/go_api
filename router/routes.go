@@ -10,7 +10,7 @@ const Version = "v1"
 func initializeRoutes(router *gin.Engine) {
 	routes := router.Group("/api/" + Version)
 	{
-		routes.GET("/opening", handler.ShowOpeningHandler)
+		routes.GET("/opening", handler.GetOpeningHandler)
 		routes.GET("/openings", handler.ListOpeningsHandler)
 		routes.PUT("/opening", handler.UpdateOpeningHandler)
 		routes.POST("/opening", handler.CreateOpeningHandler)
